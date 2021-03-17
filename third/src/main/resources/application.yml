@@ -1,0 +1,10 @@
+server:
+  port: 8993
+spring:
+  application:
+    name: csrr-third
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 139.198.169.5:8848
+

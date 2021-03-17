@@ -1,0 +1,40 @@
+
+server:
+  port: 8990
+spring:
+  application:
+    name: csrr-order
+  cloud:
+    alibaba:
+
+      seata:
+        tx-service-group: csrr_tx_group
+    nacos:
+      discovery:
+        server-addr: 139.198.169.5:8848
+
+  datasource:
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    #username: root
+    #password: 361215Cc?
+    #url: jdbc:mysql://139.198.169.5:3306/tuling-ms-alibaba?useSSL=false&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT&allowPublicKeyRetrieval=true
+    hikari:
+      jdbc-url: jdbc:mysql://139.198.169.5:3306/tuling-ms-alibaba?useSSL=false&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT&allowPublicKeyRetrieval=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 361215Cc?
+    type: com.zaxxer.hikari.HikariDataSource
+seata:
+  service:
+    grouplist:
+      seata-server: 139.198.169.5:8091
+  enable-auto-data-source-proxy: true
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+ # httpclient:
+ #   connection-timeout: 6000
